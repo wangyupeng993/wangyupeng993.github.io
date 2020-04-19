@@ -65,26 +65,6 @@
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'css')" href="javascript:void(0)">css</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'javascript')" href="javascript:void(0)">javascript</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'Vue')" href="javascript:void(0)">Vue</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'React')" href="javascript:void(0)">React</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'React-Native')" href="javascript:void(0)">React-Native</a>
-    			
-            
-    			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
     			
             
@@ -261,53 +241,13 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
-      
-      
-      
-    
-      
-      
-      
-    
-      
-      
-      
-    
-      
-      
-      
-    
-      
-      
-      
-    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 16.666666666666668%" q-on="click: openSlider(e, 'css')"><a href="javascript:void(0)" q-class="active:css">css</a></li>
-      
-        
-      
-      <li style="width: 16.666666666666668%" q-on="click: openSlider(e, 'javascript')"><a href="javascript:void(0)" q-class="active:javascript">javascript</a></li>
-      
-        
-      
-      <li style="width: 16.666666666666668%" q-on="click: openSlider(e, 'Vue')"><a href="javascript:void(0)" q-class="active:Vue">Vue</a></li>
-      
-        
-      
-      <li style="width: 16.666666666666668%" q-on="click: openSlider(e, 'React')"><a href="javascript:void(0)" q-class="active:React">React</a></li>
-      
-        
-      
-      <li style="width: 16.666666666666668%" q-on="click: openSlider(e, 'React-Native')"><a href="javascript:void(0)" q-class="active:React-Native">React-Native</a></li>
-      
-        
-      
-      <li style="width: 16.666666666666668%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 100%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
     </ul>
@@ -326,6 +266,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
