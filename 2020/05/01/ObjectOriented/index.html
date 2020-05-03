@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/4 | 黑子哲也のBlog</title>
+  <title>JavaScript中的面向对象 | 黑子哲也のBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="黑子哲也のBlog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黑子哲也のBlog">
-<meta property="og:url" content="http://yoursite.com/archives/2020/04/index.html">
+  <meta name="description" content="​        什么是面向对象（OOP）呢？你媳妇坐在你对面（哈哈哈）。  ​        面向对象编程（OOP）是用抽象方式创建基于现实世界模型的一种编程模式。面向对象程序设计的目的是在编程中促进更好的灵活性和可维护性，在大型软件工程中广为流行。凭借其对模块化的重视，面向对象的代码开发更简单，更容易理解，相比非模块化编程方法，它能更直接地分析, 编码和理解复杂的情况和过程。其实说白了面向对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript中的面向对象">
+<meta property="og:url" content="http://yoursite.com/2020/05/01/ObjectOriented/index.html">
 <meta property="og:site_name" content="黑子哲也のBlog">
-<meta property="og:description" content="黑子哲也のBlog">
+<meta property="og:description" content="​        什么是面向对象（OOP）呢？你媳妇坐在你对面（哈哈哈）。  ​        面向对象编程（OOP）是用抽象方式创建基于现实世界模型的一种编程模式。面向对象程序设计的目的是在编程中促进更好的灵活性和可维护性，在大型软件工程中广为流行。凭借其对模块化的重视，面向对象的代码开发更简单，更容易理解，相比非模块化编程方法，它能更直接地分析, 编码和理解复杂的情况和过程。其实说白了面向对象">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/218192-dc1c5a022dd2c0d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/338/format/webp">
+<meta property="article:published_time" content="2020-05-01T15:14:05.000Z">
+<meta property="article:modified_time" content="2020-05-03T17:36:35.133Z">
 <meta property="article:author" content="王宇鹏">
-<meta property="article:tag" content="Vue React React-Native Node 微信小程序 TypeScript">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/218192-dc1c5a022dd2c0d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/338/format/webp">
   
     <link rel="alternative" href="/atom.xml" title="黑子哲也のBlog" type="application/atom+xml">
   
@@ -123,36 +127,90 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ObjectOriented" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/21/ThisPointer/" class="archive-article-date">
-  	<time datetime="2020-04-20T17:04:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/21/ThisPointer/">this的指向以及修改this指向的内部方法</a>
+    <h1 class="article-title" itemprop="name">
+      JavaScript中的面向对象
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/05/01/ObjectOriented/" class="archive-article-date">
+  	<time datetime="2020-05-01T15:14:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​        什么是面向对象（OOP）呢？你媳妇坐在你对面（哈哈哈）。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/218192-dc1c5a022dd2c0d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/338/format/webp" alt="面向对象"></p>
+<p>​        面向对象编程（OOP）是用抽象方式创建基于现实世界模型的一种编程模式。面向对象程序设计的目的是在编程中促进更好的灵活性和可维护性，在大型软件工程中广为流行。凭借其对模块化的重视，面向对象的代码开发更简单，更容易理解，相比非模块化编程方法，它能更直接地分析, 编码和理解复杂的情况和过程。其实说白了面向对象（OOP）是一种程序设计范型，同时也只一种程序开发的方法。</p>
+<a id="more"></a>
+
+<p>在没有学面向对象之前我们基本都是用过程式写法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 过程式的写法，挨排着写</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun2</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; <span class="number">10</span>,i++) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> () &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那面向对象有哪些特点呢</p>
+<ul>
+<li>抽象：抓住核心问题；就是把特别一样的东西放在一起。</li>
+<li>封装：只能通过对象来访问方法；就是避免我们滥用一些方法，限制我们。</li>
+<li>继承：从已有对象上继承出新的队形；就是代码的复用，从父类上继承一些方法和属性，子类也有自己的一些方法和属性，子类不影响父类。</li>
+<li>多态：多对象的不同形态；在不同需求下去产生不同形态的效果</li>
+</ul>
+<p>对象的组成</p>
+<ul>
+<li>方法（行为、操作）——函数：过程、动态的</li>
+<li>属性——变量：状态、静态的</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">obj.name = <span class="string">'小明'</span>;</span><br><span class="line"></span><br><span class="line">obj.showName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(obj.name)</span><br><span class="line">&#125;;</span><br><span class="line">obj.showName();</span><br><span class="line"><span class="comment">// 虽然就只有一个属性，一个方法，但是这就是完整的面向对象，因为面向对象就由这两部分组成的</span></span><br><span class="line"><span class="comment">// 其实在面向对象当中一个最重要的难点在于this指针，所以如果你对this指针了解特别清楚的话，那就是相当于你的面向对象成功了一半。</span></span><br><span class="line"></span><br><span class="line">obj.showName2 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line">obj.showName2();</span><br></pre></td></tr></table></figure>
+
+<p>面向对象中的封装函数（工厂方式）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">obj.name = <span class="string">'小明'</span>;</span><br><span class="line"></span><br><span class="line">obj.showName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;;</span><br><span class="line">obj.showName();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">obj2.name = <span class="string">'小强'</span>;</span><br><span class="line"></span><br><span class="line">obj2.showName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;;</span><br><span class="line">obj2.showName();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 工厂方式：封装函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 原料</span></span><br><span class="line">    <span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">    <span class="comment">// 加工</span></span><br><span class="line">    obj.name = name;</span><br><span class="line">    obj.showName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 出厂</span></span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p1 = createPerson(<span class="string">'小明'</span>);</span><br><span class="line">p1.showName();</span><br><span class="line"><span class="keyword">var</span> p2 = createPerson(<span class="string">'小强'</span>);</span><br><span class="line">p2.showName();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 既然我们要学面向对象，那我们就是跟系统自带的一样，通过new 关键字的形式；</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 当new 去调用一个函数，这个时候函数中的this就是创建出来的对象，而且函数中的返回值直接就是this了（隐式返回）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 改写new 形式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">CreatePerson</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.showName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p3 = <span class="keyword">new</span> CreatePerson(<span class="string">'小明'</span>);</span><br><span class="line">p3.showName();</span><br><span class="line"><span class="keyword">var</span> p4 = <span class="keyword">new</span> CreatePerson(<span class="string">'小强'</span>);</span><br><span class="line">p4.showName();</span><br></pre></td></tr></table></figure>
+
+<p>面向对象中除了this之外，还有一个重要的角色，原型（prototype）。</p>
+<p>prototype：去改写对象下面公用的方法和属性，让公用的方法或者属性在内存中存在一份（提高性能）；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 原型的基本使用</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>];</span><br><span class="line">arr.sum = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> result = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="keyword">this</span>.length;i++)&#123;</span><br><span class="line">      result += <span class="keyword">this</span>[i];  </span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 这时候arr2 是不是访问不到sum该方法，如果想要访问就要重新的再写一个sum方法，并且还占内存，这时候就可以用Prototype来写sum方法，prototype要写在构造函数的下面。</span></span><br><span class="line"><span class="built_in">Array</span>.prototype.sum = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> result = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="keyword">this</span>.length;i++)&#123;</span><br><span class="line">      result += <span class="keyword">this</span>[i];  </span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line">alert(arr.sum());</span><br><span class="line">alert(arr2.sum());</span><br><span class="line"><span class="comment">// 这时候不同的数组都可以去访问sum这个方法</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// prototype它是有个优先级</span></span><br><span class="line"><span class="keyword">var</span> arr3 = [];</span><br><span class="line">arr3.number = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">Array</span>.prototype.number = <span class="number">20</span>;</span><br><span class="line">alert(arr3.number); <span class="comment">// 10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 你可以把arr3.number看做css中的style，Array.prototype.number 是css中的class，所以arr3.number的优先级会比Array.prototype.number高。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 说完prototype 后我们就把上面的CreatePerson 通过prototype 来改写一下</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">CreatePerson</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">CreatePerson.prototype.showName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> CreatePerson(<span class="string">'小明'</span>);</span><br><span class="line">p1.shouwName();</span><br><span class="line"><span class="keyword">var</span> p2 = <span class="keyword">new</span> CreatePerson(<span class="string">'小强'</span>);</span><br><span class="line">p2.shouwName();</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">我们对prototype了解完后做个面向对象写法的小总结</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">function 构造函数(参数) &#123;</span></span><br><span class="line"><span class="comment">    this.属性 = 参数</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">构造函数.prototype.方法 = function () &#123;&#125;;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">var 对象 = new 构造函数();</span></span><br><span class="line"><span class="comment">对象.方法()</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>看到这里是不是是不是觉得面向对象原来如此，so easy~~？然而并没有完，这只是基础简单的使用！</p>
+<p>其实在JavaScript源码中，系统对象也是基于原型的程序！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.prototype.push = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line">arr.push(<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>);</span><br><span class="line"><span class="comment">// 我们写的Array.prototype.push方法会把源码中的覆盖掉，这时候的push就是你自己定义的方法；所以我们尽量不要去修改或者系统对象下面的方法和属性，除非你特别了解这其中的过程。</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来就讲讲面向对象的继承</p>
+<p>​        继承：子类不影响父类，子类可以继承父类的一些功能（代码复用）</p>
+<ul>
+<li>拷贝继承，通过for in的方式</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">CreatePerson</span> (<span class="params">name,sex</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.sex = sex;</span><br><span class="line">&#125;;</span><br><span class="line">CreatePerson.prototype.showName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 子类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">CreateStar</span> (<span class="params">name,sex,job</span>) </span>&#123;</span><br><span class="line">    CreatePerson.call(<span class="keyword">this</span>,name,sex);</span><br><span class="line">    <span class="keyword">this</span>.job = job;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">extends(CreateStar.prototype,CreatePerson.prototype);</span><br><span class="line"></span><br><span class="line">CreateStar.prototype.showJob = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name,<span class="keyword">this</span>.sex,<span class="keyword">this</span>.job);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p2 = <span class="keyword">new</span> CreateStar(<span class="string">'黄晓明'</span>,<span class="string">'男'</span>,<span class="string">'演员'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extends</span> (<span class="params">obj1,obj2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> attr <span class="keyword">in</span> obj1) &#123;</span><br><span class="line">        obj1[attr] = obj2[attr];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过这种方式可以避免对象引用关系的问题</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>类式继承，利用构造函数（类）继承的方式</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 其实在JavaScript是没有类的这个概念，你可以把JavaScript 中的构造函数看做类</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 父类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Aaa</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'小明'</span>;</span><br><span class="line">    <span class="keyword">this</span>.arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">&#125;;</span><br><span class="line">Aaa.prototype.showName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 子类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Bbb</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"><span class="comment">// 这句话就是类式继承，它其实是通过原型链一层一层的往上查找，在b1上没有找到，去找Bbb.prototype,还没找到，在往上找，最后找到Aaa.prototype下的属性和方法</span></span><br><span class="line">Bbb.prototype = <span class="keyword">new</span> Aaa(); </span><br><span class="line"><span class="comment">//其实光写Bbb.prototype = new Aaa()这句话是不行的，它不完善，会存在问题，会把之前不管你是自动生成的，还是自己写方法和属性都会覆盖掉</span></span><br><span class="line"><span class="comment">// 所以</span></span><br><span class="line">Bbb.prototype.constructor = Bbb; <span class="comment">// 修正指向问题</span></span><br><span class="line"><span class="comment">// 这就完了么？其实还没有，还有问题，还少了两句话，真正的类式继承要有四句话！</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 场景</span></span><br><span class="line"><span class="keyword">var</span> b1 = <span class="keyword">new</span> Bbb();</span><br><span class="line">b1.arr.push(<span class="number">4</span>);</span><br><span class="line"><span class="keyword">var</span> b2 = <span class="keyword">new</span> Bbb();</span><br><span class="line">alert(b1.arr); <span class="comment">// [1, 2, 3, 4];</span></span><br><span class="line">alert(b2.arr); <span class="comment">// [1, 2, 3, 4];</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 面向对象的一个特点就是复用性很强，相互不影响，b1和b2 明显就相互影响了；相互影响的原因是它们最终找的还是同一个属性；想要相互不影响就要做属性和方法继承的时候，要分开继承；所以要在function Bbb () &#123;&#125;;后面加上var F = function () &#123;&#125;;F.prototype = Aaa.prototype;</span></span><br><span class="line"></span><br><span class="line">b1.showName(); <span class="comment">// 小明</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 完整版</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Aaa</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'小明'</span>;</span><br><span class="line">    <span class="keyword">this</span>.arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">&#125;;</span><br><span class="line">Aaa.prototype.showName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Bbb</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    Aaa.call(<span class="keyword">this</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">F.prototype = Aaa.prototype; <span class="comment">// 此处只能传递方法，没有办法传递属性</span></span><br><span class="line">Bbb.prototype = <span class="keyword">new</span> F();</span><br><span class="line">Bbb.prototype.constructor = Bbb;</span><br><span class="line"><span class="keyword">var</span> b1 = <span class="keyword">new</span> Bbb();</span><br><span class="line">b1.arr.push(<span class="number">4</span>);</span><br><span class="line"><span class="keyword">var</span> b2 = <span class="keyword">new</span> Bbb();</span><br><span class="line"><span class="built_in">console</span>.log(b1.arr);</span><br><span class="line"><span class="built_in">console</span>.log(b2.arr);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>原型继承，借助原型来实现对象继承对象</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;</span><br><span class="line">    name: <span class="string">'夏明'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span>  b = cloneObj(a);</span><br><span class="line">b.name = <span class="string">'小强'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(b.name);</span><br><span class="line"><span class="built_in">console</span>.log(a.name)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cloneObj</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">    F.prototype = obj;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// b 等于 F1，在F1下没有找到name，然后通过F.prototype去找，也是没有找到，最后找到obj下的name,其实也就是通过原型链一层一层的向上去查找</span></span><br></pre></td></tr></table></figure>
+
+<p>好啦，面向对象就写到这里，来总结下这三个继承。</p>
+<ul>
+<li>拷贝继承：通用型的，有new或无new的时候都可以</li>
+<li>类式继承：比较适合new构造函数形式</li>
+<li>原型继承：比较适合无new的对象</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -164,46 +222,55 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/14/hello-world/" class="archive-article-date">
-  	<time datetime="2020-04-14T13:29:41.517Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/21/ThisPointer/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">this的指向以及修改this指向的内部方法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/14/hello-world/">Hello World</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -226,8 +293,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
