@@ -6,16 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>黑子哲也のBlog</title>
+  <title>对象引用 | 黑子哲也のBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="黑子哲也のBlog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黑子哲也のBlog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="​        在JavaScript中，除了基本类型外，对象和函数都是引用的关系。 JavaScript内置类型：  空值（null） 未定义（undefined） 布尔值（number） 字符串（string） 符号（symbol，ES6中新增） 对象（object，引用类型）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对象引用">
+<meta property="og:url" content="http://yoursite.com/2020/05/10/ObjectQuote/index.html">
 <meta property="og:site_name" content="黑子哲也のBlog">
-<meta property="og:description" content="黑子哲也のBlog">
+<meta property="og:description" content="​        在JavaScript中，除了基本类型外，对象和函数都是引用的关系。 JavaScript内置类型：  空值（null） 未定义（undefined） 布尔值（number） 字符串（string） 符号（symbol，ES6中新增） 对象（object，引用类型）">
+<meta property="article:published_time" content="2020-05-10T14:02:31.000Z">
+<meta property="article:modified_time" content="2020-05-10T15:18:03.124Z">
 <meta property="article:author" content="王宇鹏">
-<meta property="article:tag" content="Vue React React-Native Node 微信小程序 TypeScript">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="黑子哲也のBlog" type="application/atom+xml">
@@ -123,16 +125,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-ObjectQuote" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-ObjectQuote" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/10/ObjectQuote/">对象引用</a>
+    <h1 class="article-title" itemprop="name">
+      对象引用
     </h1>
   
 
@@ -155,7 +155,29 @@
 <li>符号（symbol，ES6中新增）</li>
 <li>对象（object，引用类型）</li>
 </ul>
-        
+<a id="more"></a>
+
+<p>那么对象引用是什么意思呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 示例</span></span><br><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line"></span><br><span class="line">b.push(<span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 1,2,3,4</span></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 1,2,3,4</span></span><br><span class="line"><span class="comment">// 在此示例中 变量a 在内存当中有一条地址，然后它把地址引用给b,这样a和b共用同一个地址，这样b改变就会影响到a,这就是对象引用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 示例2</span></span><br><span class="line"><span class="keyword">var</span> c = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> d = c;</span><br><span class="line">d = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// [1,2,3,4]</span></span><br><span class="line"><span class="built_in">console</span>.log(c); <span class="comment">// [1,2,3]</span></span><br><span class="line"><span class="comment">// 在此示例中大家可能会有疑问，这不是对象引用关系嘛，为什么会没有影响到变量c?</span></span><br><span class="line"><span class="comment">// 其实变量c 确实在内存当中有一条地址，并把地址引用给变量d,但是在第三句 d = [1,2,3,4] 相当于d 在内存当中新建了一条地址，并和c地址引用地址断开，所以d值改变不会印象到c</span></span><br></pre></td></tr></table></figure>
+
+<p>从上面的两个示例中，如果我们想要去复制一份对象出来其实是有一些小问题的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="number">10</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj2 = obj;</span><br><span class="line"></span><br><span class="line">obj2.a = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj.a); <span class="comment">// 20</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 上面的例子中肯定是会对我们的程序造成印象，这并不是我们想要看到的</span></span><br></pre></td></tr></table></figure>
+
+<p>如果要解决对象引用造成的印象，那就是对对象采用拷贝（for in）。</p>
+<ul>
+<li>浅拷贝：拷贝对象时只拷贝一层，当属性值还是对象时，这时对象引用关系还在</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  a: <span class="number">10</span>  </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj2 = copy(obj);</span><br><span class="line">obj2.a = <span class="number">20</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.a); <span class="comment">// 10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 上面的例子中属性值如果不是对象时，是没有什么问题的</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 当属性值是对象时</span></span><br><span class="line"><span class="keyword">var</span> obj3 = &#123;</span><br><span class="line">    a: &#123;</span><br><span class="line">        b: <span class="number">10</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj4 = copy(obj3)</span><br><span class="line">obj4.a.b = <span class="number">20</span></span><br><span class="line"><span class="built_in">console</span>.log(obj3.a.b); <span class="comment">// 20</span></span><br><span class="line"><span class="comment">// 当属性值是对象时，被复制的对象就会被影响到，主要因为就是浅拷贝就只拷贝一层，导致属性引用关系还存在</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">copy</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> newObj = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> attr <span class="keyword">in</span> obj) &#123;</span><br><span class="line">        newObj[attr] = obj[attr];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newObj;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>深拷贝：拷贝对象时一层一层的去拷贝，直到对象的属性值不是对象。（采用递归方式）</p>
+<p>递归：函数调用函数自身，最后一次判断一个终止条件，可以执行归的动作。</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 深拷贝</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: &#123;</span><br><span class="line">        b: <span class="number">10</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj2 = deepCopy(obj);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepCopy</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">Object</span>.prototype.toString.call(obj) !== <span class="string">'[object Object]'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> obj;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> newObj = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> attr <span class="keyword">in</span> obj) &#123;</span><br><span class="line">        newObj[attr] = deepCopy(obj[attr]);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> newObj;</span><br><span class="line">&#125;;</span><br><span class="line">obj2.a.b = <span class="number">20</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.a.b);</span><br></pre></td></tr></table></figure>
+
+<p>对象引用以及浅拷贝、深拷贝你们get到了么？</p>
+
       
 
       
@@ -177,16 +199,24 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/10/ObjectQuote/">展开全文 >></a>
-        </p>
-      
 
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/06/closure/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">什么是闭包</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -206,233 +236,14 @@
 
 
 
-
   
-    <article id="post-closure" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/06/closure/">什么是闭包</a>
-    </h1>
   
 
-        
-        <a href="/2020/05/06/closure/" class="archive-article-date">
-  	<time datetime="2020-05-06T13:54:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​        今天聊聊什么是闭包，闭包有哪些好处，应用在哪里！</p>
-<p>​        闭包：函数嵌套函数，内部函数可以引用外部函数的参数和变量，参数和变量不会被垃圾回收机制所收回</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/06/closure/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ObjectOriented" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/04/ObjectOriented/">JavaScript中的面向对象</a>
-    </h1>
   
 
-        
-        <a href="/2020/05/04/ObjectOriented/" class="archive-article-date">
-  	<time datetime="2020-05-03T17:51:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​        什么是面向对象（OOP）呢？你媳妇坐在你对面（哈哈哈）。</p>
-<p><img src="data:image/jpeg;base64,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" alt="面向对象"></p>
-<p>​        面向对象编程（OOP）是用抽象方式创建基于现实世界模型的一种编程模式。面向对象程序设计的目的是在编程中促进更好的灵活性和可维护性，在大型软件工程中广为流行。凭借其对模块化的重视，面向对象的代码开发更简单，更容易理解，相比非模块化编程方法，它能更直接地分析, 编码和理解复杂的情况和过程。其实说白了面向对象（OOP）是一种程序设计范型，同时也只一种程序开发的方法。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/04/ObjectOriented/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ThisPointer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/21/ThisPointer/">this的指向以及修改this指向的内部方法</a>
-    </h1>
   
 
-        
-        <a href="/2020/04/21/ThisPointer/" class="archive-article-date">
-  	<time datetime="2020-04-20T17:04:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="在JavaScript中，this的指针问题非常容易让人产生混乱；同时也是面试官非常喜欢提问面试者的一个问题！因为在JavaScript中this的指向不是固定不变的，而是随着执行环境的改变而改变。"><a href="#在JavaScript中，this的指针问题非常容易让人产生混乱；同时也是面试官非常喜欢提问面试者的一个问题！因为在JavaScript中this的指向不是固定不变的，而是随着执行环境的改变而改变。" class="headerlink" title="在JavaScript中，this的指针问题非常容易让人产生混乱；同时也是面试官非常喜欢提问面试者的一个问题！因为在JavaScript中this的指向不是固定不变的，而是随着执行环境的改变而改变。"></a>在JavaScript中，this的指针问题非常容易让人产生混乱；同时也是面试官非常喜欢提问面试者的一个问题！因为在JavaScript中this的指向不是固定不变的，而是随着执行环境的改变而改变。</h5>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/21/ThisPointer/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -455,8 +266,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
